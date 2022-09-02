@@ -36,13 +36,19 @@
   }
 
   .ohm-card {
-    max-width: 803px;
+    max-width: 603px;
+    margin:0;
+    padding:0;
+    background: #181818 !important;
+    border:1px solid #000;
   }
 
   .bond-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-bottom: 1px solid rgb(53, 52, 52);
+    padding:10px 25px;
     .ohm-pair-img,
     .reserve-pair-img {
       height: 38px;
@@ -62,14 +68,15 @@
   }
 
   .bond-data {
-    margin: 10px 0 0 0;
+    margin: 20px 0 0 0;
+    padding: 0px 35px;
   }
 
   .bond-price-data-row {
     display: flex;
     justify-content: space-around;
     text-align: center;
-    margin: 23px;
+    margin: 30px 23px 23px 23px;
     h4 {
       margin-bottom: 0;
     }
@@ -124,4 +131,60 @@
 
 .web3modal-modal-lightbox {
   z-index: 70 !important;
+}
+
+/* CSS */
+
+.bond_tab{
+  width: 100%;
+}
+.bond_tab_box{
+  width: 50%;
+  border-bottom:1px solid #8d8686 !important;
+  padding: 20px 0px !important;
+  height: 40px;
+}
+.aprove_btn{
+  width: 80%;
+  border:none;
+  background: #feb626;
+  padding: 10px 15px;
+  font-family: 'Outfit';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  color: #000000;
+  cursor: pointer;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+.redem_btn{
+  border:none;
+  background: #feb626;
+  padding: 10px 25px;
+  font-family: 'Outfit';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  color: #000000;
+  cursor: pointer;
+  border-radius: 10px;
+  margin-top: 20px;
+  margin-left: 10px;
+}
+.mint_btn{
+  width: 50%;
+  border:none;
+  border-bottom: 1px solid #feb626;
+  background: none;
+  padding: 10px 15px;
+  font-family: 'Outfit';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+.borderBottom_none{
+  border-bottom:  1px solid #2e2e2e !important;
 }

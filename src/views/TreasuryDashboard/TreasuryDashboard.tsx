@@ -584,114 +584,7 @@ const TreasuryDashboard = memo(() => {
       </Grid>
       
     </Box>
-      {
-        popup? <div className="mint_box" >
-        <Box className="mint_box_container">
-            <Grid item  style={{display:"flex", justifyContent:"space-between", padding:"15px 15px", borderBottom:"1px solid #404040"}}>
-                <Typography variant="h6">Mint (Defi - USD)</Typography>
-                <Typography style={{fontSize:"18px", cursor:"pointer"}} onClick={()=>setPopup(!popup)}><BsXCircle/></Typography>
-            </Grid>
-            <Grid item style={{display:"flex", justifyContent:"space-around", padding:"45px"}} >
-                <Grid item style={{textAlign:"center"}}>
-                  <Typography style={{color: "#909090", fontSize:"14px", fontWeight:"400", fontFamily:"Outfit", lineHeight:"36px"}}>Mint Price</Typography>
-                  <Typography style={{ fontSize:"24px", fontWeight:"400", fontFamily:"Outfit", lineHeight:"36px"}}>$ 12.212</Typography>
-                </Grid>
-                <Grid item style={{textAlign:"center"}}>
-                <Typography style={{color: "#909090", fontSize:"14px", fontWeight:"400", fontFamily:"Outfit", lineHeight:"36px"}}>Market Price</Typography>
-                  <Typography style={{ fontSize:"24px", fontWeight:"400", fontFamily:"Outfit", lineHeight:"36px"}}>$ 6.212</Typography>
-                </Grid>
-            </Grid>
-            <Grid item style={{display:"flex", justifyContent:"space-around"}} >
-                <button onClick={()=>setMint(true)} className={mint==true? "mint_btn":"mint_btn borderBottom_none"}>Mint</button>
-                <button onClick={()=>setMint(false)} className={mint===false? "mint_btn ":"mint_btn borderBottom_none"}>Redeem</button>
-            </Grid>
-            {
-              mint ?  <Grid item style={{marginTop:"20px"}}>
-              <Grid item className="mint_balance">
-                <Typography>Your Balance</Typography>
-                <Typography>
-                    {isBondLoading ? (
-                    <Skeleton width="100px" />
-                      ) : (
-                        <>
-                          {trim(popupData[1], 4)} {popupData[2]}
-                        </>
-                      )}
-                </Typography>
-              </Grid>
-              <Grid item className="mint_balance">
-                <Typography>You will Get</Typography>
-                <Typography>
-                    {isBondLoading ? (
-                    <Skeleton width="100px" />
-                      ) : (
-                        `${trim(popupData[3], 4) || "0"} ` + `${popupData[4]}`
-                      )}
-                </Typography>
-              </Grid>
-              <Grid item className="mint_balance">
-                <Typography>Daily Emission Limit</Typography>
-                <Typography>
-                      {isBondLoading ? (
-                        <Skeleton width="100px" />
-                          ) : (
-                            `${trim(popupData[5], 4) || "0"} ` + `${popupData[4]}`
-                      )}
-                </Typography>
-              </Grid>
-              <Grid item className="mint_balance">
-                <Typography>You will Get</Typography>
-                <Typography>
-                  {isBondLoading ? (
-                    <Skeleton width="100px" />
-                      ) : (
-                        `${trim(popupData[3], 4) || "0"} ` + `${popupData[4]}`
-                    )}
-                </Typography>
-              </Grid>
-              <Grid item style={{display:"flex", justifyContent:"center", padding:"10px 15px"}}>
-                <button className="aprove_btn">Approve</button>
-              </Grid>
-              <Typography style={{fontSize:"10px", fontWeight:"400", textAlign:"center", padding:"10px 20px"}}>First time minting DEFI-BUSD LP? Please approve D3 Protocol to use<br/> your DEFI-BUSD LP for minting.</Typography>
-
-            </Grid>
-          :
-              <Grid item style={{marginTop:"20px"}}>
-              <Grid item className="mint_balance">
-                <Typography>Pending Rewards</Typography>
-                <Typography>{isBondLoading ? <Skeleton width="100px" /> : `${trim(popupData[5], 4)} DEFI`}</Typography>
-              </Grid>
-              <Grid item className="mint_balance">
-                <Typography>Claimable Rewards</Typography>
-                <Typography>{isBondLoading ? <Skeleton width="100px" /> : `${trim(popupData[6], 4)} DEFI`}</Typography>
-              </Grid>
-              <Grid item className="mint_balance">
-                <Typography>Time until fully vested</Typography>
-                <Typography>{isBondLoading ? <Skeleton width="100px" /> : "5 days" }</Typography>
-              </Grid>
-              <Grid item className="mint_balance">
-                <Typography>ROI</Typography>
-                <Typography>{isBondLoading ? <Skeleton width="100px" /> : `${popupData[8] && trim(popupData[8] * 100, 2)} %`}</Typography>
-              </Grid>
-              <Grid item className="mint_balance">
-                <Typography>Debt Ratio</Typography>
-                <Typography>{isBondLoading ? <Skeleton width="100px" /> : `${trim(popupData[7] / 10000000, 2)}%`}</Typography>
-              </Grid>
-              <Grid item className="mint_balance">
-                <Typography>Vesting term</Typography>
-                <Typography>{isBondLoading ? <Skeleton width="100px" /> : "5 days" }</Typography>
-              </Grid>
-              <Grid item style={{display:"flex", justifyContent:"center", padding:"10px 15px"}}>
-                <button className="redem_btn" style={{background:"none", border:"1px solid #feb626", color:"#feb626"}}>Claim</button>
-                <button className="redem_btn" >Claim and auto stake</button>
-              </Grid>
-
-            </Grid>
-            }
-        </Box>
-    </div>:
-          ""
-      }
+    
     </>
   );
 });
@@ -705,3 +598,111 @@ export default () => (
 );
 
 
+// {
+//   popup? <div className="mint_box" >
+//   <Box className="mint_box_container">
+//       <Grid item  style={{display:"flex", justifyContent:"space-between", padding:"15px 15px", borderBottom:"1px solid #404040"}}>
+//           <Typography variant="h6">Mint (Defi - USD)</Typography>
+//           <Typography style={{fontSize:"18px", cursor:"pointer"}} onClick={()=>setPopup(!popup)}><BsXCircle/></Typography>
+//       </Grid>
+//       <Grid item style={{display:"flex", justifyContent:"space-around", padding:"45px"}} >
+//           <Grid item style={{textAlign:"center"}}>
+//             <Typography style={{color: "#909090", fontSize:"14px", fontWeight:"400", fontFamily:"Outfit", lineHeight:"36px"}}>Mint Price</Typography>
+//             <Typography style={{ fontSize:"24px", fontWeight:"400", fontFamily:"Outfit", lineHeight:"36px"}}>$ 12.212</Typography>
+//           </Grid>
+//           <Grid item style={{textAlign:"center"}}>
+//           <Typography style={{color: "#909090", fontSize:"14px", fontWeight:"400", fontFamily:"Outfit", lineHeight:"36px"}}>Market Price</Typography>
+//             <Typography style={{ fontSize:"24px", fontWeight:"400", fontFamily:"Outfit", lineHeight:"36px"}}>$ 6.212</Typography>
+//           </Grid>
+//       </Grid>
+//       <Grid item style={{display:"flex", justifyContent:"space-around"}} >
+//           <button onClick={()=>setMint(true)} className={mint==true? "mint_btn":"mint_btn borderBottom_none"}>Mint</button>
+//           <button onClick={()=>setMint(false)} className={mint===false? "mint_btn ":"mint_btn borderBottom_none"}>Redeem</button>
+//       </Grid>
+//       {
+//         mint ?  <Grid item style={{marginTop:"20px"}}>
+//         <Grid item className="mint_balance">
+//           <Typography>Your Balance</Typography>
+//           <Typography>
+//               {isBondLoading ? (
+//               <Skeleton width="100px" />
+//                 ) : (
+//                   <>
+//                     {trim(popupData[1], 4)} {popupData[2]}
+//                   </>
+//                 )}
+//           </Typography>
+//         </Grid>
+//         <Grid item className="mint_balance">
+//           <Typography>You will Get</Typography>
+//           <Typography>
+//               {isBondLoading ? (
+//               <Skeleton width="100px" />
+//                 ) : (
+//                   `${trim(popupData[3], 4) || "0"} ` + `${popupData[4]}`
+//                 )}
+//           </Typography>
+//         </Grid>
+//         <Grid item className="mint_balance">
+//           <Typography>Daily Emission Limit</Typography>
+//           <Typography>
+//                 {isBondLoading ? (
+//                   <Skeleton width="100px" />
+//                     ) : (
+//                       `${trim(popupData[5], 4) || "0"} ` + `${popupData[4]}`
+//                 )}
+//           </Typography>
+//         </Grid>
+//         <Grid item className="mint_balance">
+//           <Typography>You will Get</Typography>
+//           <Typography>
+//             {isBondLoading ? (
+//               <Skeleton width="100px" />
+//                 ) : (
+//                   `${trim(popupData[3], 4) || "0"} ` + `${popupData[4]}`
+//               )}
+//           </Typography>
+//         </Grid>
+//         <Grid item style={{display:"flex", justifyContent:"center", padding:"10px 15px"}}>
+//           <button className="aprove_btn">Approve</button>
+//         </Grid>
+//         <Typography style={{fontSize:"10px", fontWeight:"400", textAlign:"center", padding:"10px 20px"}}>First time minting DEFI-BUSD LP? Please approve D3 Protocol to use<br/> your DEFI-BUSD LP for minting.</Typography>
+
+//       </Grid>
+//     :
+//         <Grid item style={{marginTop:"20px"}}>
+//         <Grid item className="mint_balance">
+//           <Typography>Pending Rewards</Typography>
+//           <Typography>{isBondLoading ? <Skeleton width="100px" /> : `${trim(popupData[5], 4)} DEFI`}</Typography>
+//         </Grid>
+//         <Grid item className="mint_balance">
+//           <Typography>Claimable Rewards</Typography>
+//           <Typography>{isBondLoading ? <Skeleton width="100px" /> : `${trim(popupData[6], 4)} DEFI`}</Typography>
+//         </Grid>
+//         <Grid item className="mint_balance">
+//           <Typography>Time until fully vested</Typography>
+//           <Typography>{isBondLoading ? <Skeleton width="100px" /> : "5 days" }</Typography>
+//         </Grid>
+//         <Grid item className="mint_balance">
+//           <Typography>ROI</Typography>
+//           <Typography>{isBondLoading ? <Skeleton width="100px" /> : `${popupData[8] && trim(popupData[8] * 100, 2)} %`}</Typography>
+//         </Grid>
+//         <Grid item className="mint_balance">
+//           <Typography>Debt Ratio</Typography>
+//           <Typography>{isBondLoading ? <Skeleton width="100px" /> : `${trim(popupData[7] / 10000000, 2)}%`}</Typography>
+//         </Grid>
+//         <Grid item className="mint_balance">
+//           <Typography>Vesting term</Typography>
+//           <Typography>{isBondLoading ? <Skeleton width="100px" /> : "5 days" }</Typography>
+//         </Grid>
+//         <Grid item style={{display:"flex", justifyContent:"center", padding:"10px 15px"}}>
+//           <button className="redem_btn" style={{background:"none", border:"1px solid #feb626", color:"#feb626"}}>Claim</button>
+//           <button className="redem_btn" >Claim and auto stake</button>
+//         </Grid>
+
+//       </Grid>
+//       }
+//   </Box>
+// </div>:
+//     ""
+// }

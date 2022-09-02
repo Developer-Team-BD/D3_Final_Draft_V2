@@ -155,7 +155,7 @@ function BondPurchase({ bond, slippage, recipientAddress }) {
 
   return (
     <Box display="flex" flexDirection="column">
-      <Box display="flex" justifyContent="space-around" flexWrap="wrap">
+      {/*<Box display="flex" justifyContent="space-around" flexWrap="wrap">
         {!address ? (
           <ConnectButton />
         ) : (
@@ -206,8 +206,10 @@ function BondPurchase({ bond, slippage, recipientAddress }) {
                   >
                     {/* NOTE (appleseed): temporary for ONHOLD MIGRATION */}
                     {/* <Trans>Sold Out</Trans> */}
-                    {bond.LOLmessage}
-                  </Button>
+                    
+                    
+                    {/* {bond.LOLmessage} //Sign 
+                  </Button> 
                 ) : hasAllowance() ? (
                   <Button
                     variant="contained"
@@ -235,7 +237,7 @@ function BondPurchase({ bond, slippage, recipientAddress }) {
             )}{" "}
           </>
         )}
-      </Box>
+      </Box>  */}
 
       <Slide direction="left" in={true} mountOnEnter unmountOnExit {...{ timeout: 533 }}>
         <Box className="bond-data">
@@ -321,6 +323,19 @@ function BondPurchase({ bond, slippage, recipientAddress }) {
           )}
         </Box>
       </Slide>
+
+        <div  style={{display:"flex", justifyContent:"center", padding:"10px 15px"}}>
+          <button className="aprove_btn">Approve</button>
+        </div>
+        <div className="help-text">
+                    <em>
+                      <Typography variant="body1" align="center" color="textSecondary">
+                        <Trans>First time minting</Trans> <b>{bond.displayName}</b>? <br />{" "}
+                        <Trans>Please approve D3 Protocol to use your</Trans> <b>{bond.displayName}</b>{" "}
+                        <Trans>for minting</Trans>.
+                      </Typography>
+                    </em>
+                  </div>
     </Box>
   );
 }

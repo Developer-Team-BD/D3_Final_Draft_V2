@@ -1,5 +1,5 @@
 import BondLogo from "../../components/BondLogo";
-import { DisplayBondPrice, DisplayBondDiscount } from "../Bond/Bond";
+import Bond, { DisplayBondPrice, DisplayBondDiscount } from "../Bond/Bond";
 import { Box, Button, Link, Paper, Typography, TableRow, TableCell, SvgIcon, Slide } from "@material-ui/core";
 import { ReactComponent as ArrowUp } from "../../assets/icons/arrow-up.svg";
 import { NavLink } from "react-router-dom";
@@ -101,17 +101,17 @@ export function BondDataCard({ bond, popup, setPopup, setPopupData }) {
             )}
           </Typography>
         </div>
-        {/* <Link component={NavLink} to={`/mints/${bond.name}`}>
-         
-        </Link> */}
-         <Button variant="outlined" color="primary" fullWidth disabled={!bond.isBondable[networkId]} onClick={()=>mint(bond)}>
-            <Typography variant="h5">
-              {/* NOTE (appleseed): temporary for ONHOLD MIGRATION */}
-              {/* {!bond.isBondable[networkId] ? t`Sold Out` : t`Bond ${bond.displayName}`} */}
-              {/* {bond.isLOLable[networkId] ? bond.LOLmessage : t`Bond ${bond.displayName}`} */}
-              Mint
-            </Typography>
+        <Link component={NavLink} to={`/mints/${bond.name}`}>
+          <Button variant="outlined" color="primary" fullWidth disabled={!bond.isBondable[networkId]} >
+              <Typography variant="h5">
+                {/* NOTE (appleseed): temporary for ONHOLD MIGRATION */}
+                {/* {!bond.isBondable[networkId] ? t`Sold Out` : t`Bond ${bond.displayName}`} */}
+                {/* {bond.isLOLable[networkId] ? bond.LOLmessage : t`Bond ${bond.displayName}`} */}
+                Mint
+              </Typography>
           </Button>
+        </Link>
+       
       </Paper>
     </Slide>
   );
@@ -195,24 +195,24 @@ export function BondTableData({ bond, setPopup, popup , setPopupData }) {
         )}
       </TableCell>
       <TableCell>
-        {/* <Link className="bond-name-link" component={NavLink} to={`/mints/${bond.name}`}>
-          
-        </Link> */}
-        <Button
-            className="bond-name-button"
-            variant="outlined"
-            color="primary"
-            disabled={!bond.isBondable[networkId]}
-            style={{ width: "100%" }}
-            onClick={()=>mint(bond)}
-          >
-            {/* NOTE (appleseed): temporary for ONHOLD MIGRATION */}
-            {/* <Typography variant="h6">{!bond.isBondable[networkId] ? t`Sold Out` : t`do_bond`}</Typography> */}
-            <Typography className="bond-name-button-text" variant="h6">
-              {/* {bond.isLOLable[networkId] ? bond.LOLmessage : t`do_bond`} */}
-              Mint
-            </Typography>
-          </Button>
+        <Link className="bond-name-link" component={NavLink} to={`/mints/${bond.name}`}>
+          <Button
+              className="bond-name-button"
+              variant="outlined"
+              color="primary"
+              disabled={!bond.isBondable[networkId]}
+              style={{ width: "100%" }}
+            
+            >
+              {/* NOTE (appleseed): temporary for ONHOLD MIGRATION */}
+              {/* <Typography variant="h6">{!bond.isBondable[networkId] ? t`Sold Out` : t`do_bond`}</Typography> */}
+              <Typography className="bond-name-button-text" variant="h6">
+                {/* {bond.isLOLable[networkId] ? bond.LOLmessage : t`do_bond`} */}
+                Mint
+              </Typography>
+            </Button>
+        </Link>
+        
       </TableCell>
     </TableRow>
   );

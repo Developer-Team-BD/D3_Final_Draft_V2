@@ -53,7 +53,7 @@ function BondRedeem({ bond }) {
 
   return (
     <Box display="flex" flexDirection="column">
-      <Box display="flex" justifyContent="space-around" flexWrap="wrap">
+      {/* <Box display="flex" justifyContent="space-around" flexWrap="wrap">
         {!address ? (
           <ConnectButton />
         ) : (
@@ -89,7 +89,7 @@ function BondRedeem({ bond }) {
             </Button>
           </>
         )}
-      </Box>
+      </Box> */}
       <Slide direction="right" in={true} mountOnEnter unmountOnExit {...{ timeout: 533 }}>
         <Box className="bond-data">
           <div className="data-row">
@@ -141,6 +141,10 @@ function BondRedeem({ bond }) {
           </div>
         </Box>
       </Slide>
+      <div item style={{display:"flex", justifyContent:"center", padding:"10px 15px"}}>
+           <button className="redem_btn" style={{background:"none", border:"1px solid #feb626", color:"#feb626"}}>Claim</button>
+           <button className="redem_btn" >Claim and auto stake</button>
+         </div>
     </Box>
   );
 }

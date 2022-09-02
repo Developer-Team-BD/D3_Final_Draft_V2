@@ -82,85 +82,101 @@ const Bond = ({ bond }: { bond: IAllBondData }) => {
     setView(Number(value));
   };
 
+
+  /* CODE */
+  const [mint , setMint]=useState(true)
   return (
     <>
-      {/* // <Fade in={true} mountOnEnter unmountOnExit>
-    //   <Grid container id="bond-view">
-    //     <Backdrop open={true} onClick={onClickAway}>
-    //       <Fade in={true}>
-    //         <Paper className="ohm-card ohm-modal" onClick={onClickModal}>*/}
-      <BondHeader
-        bond={bond}
-        slippage={slippage}
-        recipientAddress={recipientAddress}
-        onSlippageChange={onSlippageChange}
-        onRecipientAddressChange={onRecipientAddressChange}
-      />
+      <Fade in={true} mountOnEnter unmountOnExit>
+        <Grid container id="bond-view">
+           <Backdrop open={true} onClick={onClickAway}>
+             <Fade in={true}>
+               <Paper className="ohm-card ohm-model"  onClick={onClickModal}> {/*ohm-card ohm-modal*/}
+                <BondHeader
+                  bond={bond}
+                  slippage={slippage}
+                  recipientAddress={recipientAddress}
+                  onSlippageChange={onSlippageChange}
+                  onRecipientAddressChange={onRecipientAddressChange}
+                />
 
-      <Box display="flex" flexDirection="row" className="bond-price-data-row">
-        <div className="bond-price-data">
-          <Typography variant="h5" color="textSecondary">
-            <Trans>Price</Trans>
-          </Typography>
-          <Typography variant="h3" className="price" color="primary">
-            <>
-              {isBondLoading ? (
-                <Skeleton width="50px" />
-              ) : (
-                <DisplayBondPrice key={bond.name} bond={bond} />
-              )}
-            </>
-          </Typography>
-        </div>
-        <div className="bond-price-data">
-          <Typography variant="h5" color="textSecondary">
-            <Trans>Market Price</Trans>
-          </Typography>
-          <Typography variant="h3" color="primary" className="price">
-            {isBondLoading ? <Skeleton /> : <>${trim(marketPrice, 3)}</>}
-          </Typography>
-        </div>
-      </Box>
+                  <Box display="flex" flexDirection="row" className="bond-price-data-row">
+                    <div className="bond-price-data">
+                      <Typography variant="h5" color="textSecondary">
+                        <Trans>Mint Price</Trans>
+                      </Typography>
+                      <Typography variant="h3" className="price" color="primary">
+                        <>
+                          {isBondLoading ? (
+                            <Skeleton width="50px" />
+                          ) : (
+                            <DisplayBondPrice key={bond.name} bond={bond} />
+                          )}
+                        </>
+                      </Typography>
+                    </div>
+                    <div className="bond-price-data">
+                      <Typography variant="h5" color="textSecondary">
+                        <Trans>Market Price</Trans>
+                      </Typography>
+                      <Typography variant="h3" color="primary" className="price">
+                        {isBondLoading ? <Skeleton /> : <>${trim(marketPrice, 3)}</>}
+                      </Typography>
+                    </div>
+                  </Box>
 
-      <Tabs
-        centered
-        value={view}
-        textColor="primary"
-        indicatorColor="primary"
-        onChange={changeView}
-        aria-label="bond tabs"
-      >
-        <Tab
-          aria-label="bond-tab-button"
-          label={t({
-            id: "Mint",
-            comment: "The action of bonding (verb)",
-          })}
-          {...a11yProps(0)}
-        />
-        <Tab
-          aria-label="redeem-tab-button"
-          label={t`Redeem`}
-          {...a11yProps(1)}
-        />
-      </Tabs>
+                  {/* <Tabs
+                    value={view}
+                    textColor="primary"
+                    indicatorColor="primary"
+                    onChange={changeView}
+                    aria-label="bond tabs"
+                    className="bond_tab"
+                  >
+                    <Tab
+                      aria-label="bond-tab-button"
+                      label={t({
+                        id: "Mint",
+                        comment: "The action of bonding (verb)",
+                      })}
+                      {...a11yProps(0)}
+                      className="bond_tab_box"
+                    />
+                    <Tab
+                      aria-label="redeem-tab-button"
+                      label={t`Redeem`}
+                      {...a11yProps(1)}
+                      className="bond_tab_box"
+                    />
+                  </Tabs>
 
-      <TabPanel value={view} index={0}>
-        <BondPurchase
-          bond={bond}
-          slippage={slippage}
-          recipientAddress={recipientAddress}
-        />
-      </TabPanel>
+                  <TabPanel value={view} index={0}>
+                    <BondPurchase
+                      bond={bond}
+                      slippage={slippage}
+                      recipientAddress={recipientAddress}
+                    />
+                  </TabPanel>
 
-      <TabPanel value={view} index={1}>
-        <BondRedeem bond={bond} />
-      </TabPanel>
-      {/* //         </Paper>
-    //       </Fade>
-    //     </Backdrop>
-    //   </Grid>
-    // </Fade> */}
+                  <TabPanel value={view} index={1}>
+                    <BondRedeem bond={bond} />
+                  </TabPanel> */}
+                    <Grid item style={{display:"flex", justifyContent:"space-around"}} >
+                        <button onClick={()=>setMint(true)} className={mint==true? "mint_btn":"mint_btn borderBottom_none"}>Mint</button>
+                        <button onClick={()=>setMint(false)} className={mint===false? "mint_btn ":"mint_btn borderBottom_none"}>Redeem</button>
+                    </Grid>
+                  {
+                    !mint?  <BondPurchase
+                    bond={bond}
+                    slippage={slippage}
+                    recipientAddress={recipientAddress}
+                  />:<BondRedeem bond={bond} />
+                  }
+              </Paper>
+           </Fade>
+         </Backdrop>
+       </Grid>
+     </Fade>
     </>
   );
 };
