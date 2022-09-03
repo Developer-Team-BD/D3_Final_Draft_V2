@@ -165,13 +165,13 @@ const Bond = ({ bond }: { bond: IAllBondData }) => {
                         <button onClick={()=>setMint(true)} className={mint==true? "mint_btn":"mint_btn borderBottom_none"}>Mint</button>
                         <button onClick={()=>setMint(false)} className={mint===false? "mint_btn ":"mint_btn borderBottom_none"}>Redeem</button>
                     </Grid>
-                  {
-                    mint?  <BondPurchase
-                    bond={bond}
-                    slippage={slippage}
-                    recipientAddress={recipientAddress}
-                  />:<BondRedeem bond={bond} />
-                  }
+                    {
+                      mint?  <BondPurchase
+                      bond={bond}
+                      slippage={slippage}
+                      recipientAddress={recipientAddress}
+                    />:<BondRedeem bond={bond} />
+                    }
               </Paper>
            </Fade>
          </Backdrop>

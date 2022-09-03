@@ -146,22 +146,22 @@ function NavContent() {
                     </Typography>
                   </Link> */}
 
-                  <Link
+                  {/* <Link
                     component={NavLink}
                     id="bond-nav"
                     to="/mints"
                     isActive={(match, location) => {
                       return checkPage(match, location, "mints");
                     }}
-                    className={`button-dapp-menu ${isActive ? "active" : ""}`}
+                    className={`button-dapp-menu ${isActive ? "active" : ""}`}         //Mint Option
                   >
                     <Typography variant="h6">
                       <SvgIcon color="primary" component={BondIcon} />
                       <Trans>Mint</Trans>
                     </Typography>
-                  </Link>
+                  </Link> */}
 
-                  <div className="dapp-menu-data discounts">
+                  {/* <div className="dapp-menu-data discounts">
                     <div className="bond-discounts">
                       <Typography variant="body2">
                         <Trans>Mint Discounts</Trans>
@@ -171,7 +171,7 @@ function NavContent() {
                         // if (bond.getBondability(networkId)) {
                         if (bond.getBondability(networkId) || bond.getLOLability(networkId)) {
                           return (
-                            <Link component={NavLink} to={`/mints/${bond.name}`} key={i} className={"bond"}>
+                            <Link component={NavLink} to={`/mints/${bond.name}`} key={i} className={"bond"}>         //Mint Bond Option
                               {!bond.bondDiscount ? (
                                 <Skeleton variant="text" width={"150px"} />
                               ) : (
@@ -183,7 +183,7 @@ function NavContent() {
                                     {/* {!bond.isBondable[networkId]
                                       ? "Sold Out"
                                       : `${bond.bondDiscount && trim(bond.bondDiscount * 100, 2)}%`} */}
-                                  </span>
+                                  {/* </span>
                                 </Typography>
                               )}
                             </Link>
@@ -191,7 +191,7 @@ function NavContent() {
                         }
                       })}
                     </div>
-                  </div>
+                  </div> */} 
                   <Link
                     component={NavLink}
                     id="index-nav"
