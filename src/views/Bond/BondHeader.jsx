@@ -28,10 +28,10 @@ function BondHeader({ bond, slippage, recipientAddress, onRecipientAddressChange
   return (
     <div className="bond-header">
       <Typography>Mint (Defi - USD)</Typography>
-      <Link component={NavLink} to="/dashboard" className="cancel-bond">
+      {/* <Link component={NavLink} to="/dashboard" className="cancel-bond">
         <SvgIcon color="primary" component={XIcon} />
         
-      </Link>
+      </Link> */}
 
       {/* <div className="bond-header-logo">
         <BondLogo bond={bond} />
@@ -39,7 +39,7 @@ function BondHeader({ bond, slippage, recipientAddress, onRecipientAddressChange
           <Typography variant="h5">{bond.displayName}</Typography>
         </div>
       </div> */}
-{/* 
+
       <div className="bond-settings">
         <IconButton onClick={handleOpen}>
           <SvgIcon color="primary" component={SettingsIcon} />
@@ -52,7 +52,7 @@ function BondHeader({ bond, slippage, recipientAddress, onRecipientAddressChange
           onRecipientAddressChange={onRecipientAddressChange}
           onSlippageChange={onSlippageChange}
         />
-      </div> */}
+      </div>
     </div>
   );
 }

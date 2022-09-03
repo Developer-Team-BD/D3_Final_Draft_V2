@@ -135,7 +135,7 @@ function TopBar({ theme, toggleTheme, handleDrawerToggle }) {
                         : {}
                     }
                   >
-                    <Trans>D3 NFT</Trans>
+                    <Trans>D3 Index</Trans>
                   </Typography>
                 </Link>
               </Grid>

@@ -89,7 +89,7 @@ const TreasuryDashboard = memo(() => {
     },
     {
       name: "TVL",
-      value: `$ ${trim(stakingTVL, 0)}`,
+      value: `$ ${trim(stakingTVL,0)}`,
     },
     {
       name: "Next Emission Block No.",
