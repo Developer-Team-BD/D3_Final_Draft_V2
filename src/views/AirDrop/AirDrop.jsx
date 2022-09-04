@@ -107,7 +107,7 @@ function AirDrop() {
                 <div>
                   <Typography style={{color:"#868686", fontSize:"18px", fontWeight:"400", fontFamily:"Outfit", lineHeight:"46px"}}>Total BUSD claimed</Typography>
                   <Typography style={{ fontSize:"48px", fontWeight:"600", fontFamily:"Outfit", lineHeight:"56px"}}>212</Typography>
-                  <Typography style={{ fontSize:"18px", fontWeight:"400", fontFamily:"Outfit", lineHeight:"56px"}}>$ 25,212</Typography>
+                  <Typography style={{ fontSize:"18px", fontWeight:"400", fontFamily:"Outfit", lineHeight:"56px"}}>${trim(totalBUSDClaimed,3)}</Typography>
                 </div>
                 <div style={{display:"flex", flexDirection:"column", marginBottom:"10px"}}>
                   <button className="totalBusd_btn">Buy DEFI</button>
@@ -120,7 +120,7 @@ function AirDrop() {
             <div className="airdrop-view-box marginLeft_a" style={{alignItems:"center", justifyContent:"center"}}>
                 <div>
                   <Typography style={{color:"#868686", fontSize:"18px", fontWeight:"400", fontFamily:"Outfit", lineHeight:"46px"}}>Unrealised Pending BUSD</Typography>
-                  <Typography style={{ fontSize:"48px", fontWeight:"600", fontFamily:"Outfit", lineHeight:"56px"}}>$ 218.2</Typography>
+                  <Typography style={{ fontSize:"48px", fontWeight:"600", fontFamily:"Outfit", lineHeight:"56px"}}>${trim(pendingBUSD,3)}</Typography>
                   <button className="claimNow_btn">Claim Now</button>
 
                 </div>
@@ -135,7 +135,7 @@ function AirDrop() {
                 <img src={img1} />
                 <div style={{marginLeft:"20px", lineHeight:"16px"}}>
                   <Typography variant="h6" style={{lineHeight:"36px", fontSize:"14px", fontFamily:"Outfit", fontWeight:"400", color:"#868686"}}>Next Pool Release</Typography>
-                  <Typography style={{lineHeight:"36px", fontSize:"28px", fontFamily:"Outfit"}}>$ 6.8</Typography>
+                  <Typography style={{lineHeight:"36px", fontSize:"28px", fontFamily:"Outfit"}}>${trim(poolBalance,3)}</Typography>
                 </div>
               </div>
 
@@ -145,7 +145,7 @@ function AirDrop() {
                 <img src={img1} />
                 <div style={{marginLeft:"20px", lineHeight:"16px"}}>
                   <Typography variant="h6" style={{lineHeight:"36px", fontSize:"14px", fontFamily:"Outfit", fontWeight:"400", color:"#868686"}}>Total Payouts</Typography>
-                  <Typography style={{lineHeight:"36px", fontSize:"28px", fontFamily:"Outfit"}}>$ 82,302.5</Typography>
+                  <Typography style={{lineHeight:"36px", fontSize:"28px", fontFamily:"Outfit"}}>${trim(totalPayout,3)}</Typography>
                 </div>
               </div>
 
@@ -165,7 +165,7 @@ function AirDrop() {
                 <img src={img1} />
                 <div style={{marginLeft:"20px", lineHeight:"16px"}}>
                   <Typography variant="h6" style={{lineHeight:"36px", fontSize:"14px", fontFamily:"Outfit", fontWeight:"400", color:"#868686"}}>Your Staked sDEFI</Typography>
-                  <Typography style={{lineHeight:"36px", fontSize:"28px", fontFamily:"Outfit"}}>$ 6.8</Typography>
+                  <Typography style={{lineHeight:"36px", fontSize:"28px", fontFamily:"Outfit"}}>${trim(stakedDEFI,3)}</Typography>
                 </div>
               </div>
 
@@ -177,7 +177,7 @@ function AirDrop() {
                 <img src={img1} />
                 <div style={{marginLeft:"20px", lineHeight:"16px"}}>
                   <Typography variant="h6" style={{lineHeight:"36px", fontSize:"14px", fontFamily:"Outfit", fontWeight:"400", color:"#868686"}}>Next Payout</Typography>
-                  <Typography style={{lineHeight:"36px", fontSize:"28px", fontFamily:"Outfit"}}>$ 3,52,453</Typography>
+                  <Typography style={{lineHeight:"36px", fontSize:"28px", fontFamily:"Outfit"}}>$ 0</Typography>
                 </div>
               </div>
 
@@ -187,7 +187,7 @@ function AirDrop() {
                 <img src={img1} />
                 <div style={{marginLeft:"20px", lineHeight:"16px"}}>
                   <Typography variant="h6" style={{lineHeight:"36px", fontSize:"14px", fontFamily:"Outfit", fontWeight:"400", color:"#868686"}}>Your Staked sDEFI</Typography>
-                  <Typography style={{lineHeight:"36px", fontSize:"28px", fontFamily:"Outfit"}}>$ 6.8</Typography>
+                  <Typography style={{lineHeight:"36px", fontSize:"28px", fontFamily:"Outfit"}}>${trim(stakedDEFI,3)}</Typography>
                 </div>
               </div>
 

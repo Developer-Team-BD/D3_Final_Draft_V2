@@ -101,7 +101,7 @@ const TreasuryDashboard = memo(() => {
     },
     {
       name: "Daily mint limit",
-      value: 0,
+      value: 858,
     },
     {
       name: "Treasury Balance",
@@ -109,7 +109,7 @@ const TreasuryDashboard = memo(() => {
     },
     {
       name: "D3 Index Balance",
-      value: `$ ${0}`,
+      value: `$ ${10716}`,
     },
     {
       name: "Total Burn Tokens",
@@ -117,11 +117,11 @@ const TreasuryDashboard = memo(() => {
     },
     {
       name: "AUM",
-      value: `$ ${0}`,
+      value: `$ ${213497}`,
     },
     {
       name: "Burning Rate",
-      value: "0 %",
+      value: "3 %",
     },
   ];
 
