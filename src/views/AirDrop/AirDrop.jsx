@@ -23,6 +23,9 @@ import {
 } from "../../helpers";
 import { ReactComponent as Background } from "../../assets/page-bg.svg";
 import img1 from '../../assets/NewImage/Frame 48095913.png'
+import { Link } from "react-router-dom";
+import { addresses } from "../../constants";
+
 
 function AirDrop() {
   // const { address, connect } = useWeb3Context();
@@ -71,6 +74,9 @@ function AirDrop() {
       dispatch,
     });
   }
+  const D3_ADDRESS = addresses[networkId] && addresses[networkId].D3_ADDRESS;
+
+
 
 
   /* Dividend Data */
@@ -110,9 +116,15 @@ function AirDrop() {
                   <Typography style={{ fontSize:"18px", fontWeight:"400", fontFamily:"Outfit", lineHeight:"56px"}}>${trim(totalBUSDClaimed,3)}</Typography>
                 </div>
                 <div style={{display:"flex", flexDirection:"column", marginBottom:"10px"}}>
-                  <button className="totalBusd_btn">Buy DEFI</button>
-                  <button className="totalBusd_btn">Stake Crypto</button>
-
+                  <Link  
+                    to={`https://pancakeswap.finance/swap?outputCurrency=${D3_ADDRESS}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                      <button  className="totalBusd_btn">Buy DEFI</button>
+                  </Link>
+                  <Link to="/dashboard"><button  className="totalBusd_btn">Stake Crypto</button></Link>
+                  
                 </div>
               </div>
             </Grid>
@@ -121,7 +133,7 @@ function AirDrop() {
                 <div>
                   <Typography style={{color:"#868686", fontSize:"18px", fontWeight:"400", fontFamily:"Outfit", lineHeight:"46px"}}>Unrealised Pending BUSD</Typography>
                   <Typography style={{ fontSize:"48px", fontWeight:"600", fontFamily:"Outfit", lineHeight:"56px"}}>${trim(pendingBUSD,3)}</Typography>
-                  <button className="claimNow_btn">Claim Now</button>
+                  <button className="claimNow_btn" onClick={()=>{DividEnd()}}>Claim Now</button>
 
                 </div>
             </div>
@@ -135,7 +147,7 @@ function AirDrop() {
                 <img src={img1} />
                 <div style={{marginLeft:"20px", lineHeight:"16px"}}>
                   <Typography variant="h6" style={{lineHeight:"36px", fontSize:"14px", fontFamily:"Outfit", fontWeight:"400", color:"#868686"}}>Next Pool Release</Typography>
-                  <Typography style={{lineHeight:"36px", fontSize:"28px", fontFamily:"Outfit"}}>${trim(poolBalance,3)}</Typography>
+                  <Typography style={{lineHeight:"36px", fontSize:"28px", fontFamily:"Outfit"}}>{(vestingPeriod(rebasePool)==0)? "$0": vestingPeriod(rebasePool)}</Typography>
                 </div>
               </div>
 
@@ -177,7 +189,7 @@ function AirDrop() {
                 <img src={img1} />
                 <div style={{marginLeft:"20px", lineHeight:"16px"}}>
                   <Typography variant="h6" style={{lineHeight:"36px", fontSize:"14px", fontFamily:"Outfit", fontWeight:"400", color:"#868686"}}>Next Payout</Typography>
-                  <Typography style={{lineHeight:"36px", fontSize:"28px", fontFamily:"Outfit"}}>$ 0</Typography>
+                  <Typography style={{lineHeight:"36px", fontSize:"28px", fontFamily:"Outfit"}}>{(vestingPeriod(nextPayOut)==0)?"$0": vestingPeriod(nextPayOut)}</Typography>
                 </div>
               </div>
 

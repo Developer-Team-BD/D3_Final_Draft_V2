@@ -181,7 +181,7 @@
 }
 .totalBusd_btn{
   margin-top: 20px;
-  padding: 10px 35px;
+  padding: 10px 0px;
   border-radius: 12px;
   font-family: 'Outfit';
   font-style: normal;
@@ -191,7 +191,8 @@
   border-radius: 8px;
   background: none;
   border: 1px solid #3b3b3b;;
-  color: #fff
+  color: #fff;
+  width:160px;
 }
 .dividend-box{
   background: #232625;
@@ -245,5 +246,9 @@
   }
   .airdrop_view_container_responsive{
     margin-top: 30px;
+  }
+  .totalBusd_btn{
+    font-size: 14px !important;
+    width: 140px;
   }
 }

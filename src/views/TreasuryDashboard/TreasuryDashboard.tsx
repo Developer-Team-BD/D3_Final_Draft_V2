@@ -14,6 +14,7 @@ import Bond from "../Bond/Bond";
 import ChooseBond from "../ChooseBond/ChooseBond";
 import Stake from "../Stake/Stake";
 import {BsXCircle} from 'react-icons/bs'
+import useAssets from "src/hooks/Asset";
 
 
 
@@ -28,6 +29,8 @@ import Img4 from '../../assets/NewImage/Frame 48095913.png'
 
 
 const TreasuryDashboard = memo(() => {
+const { assets, total } =  useAssets()
+
   const isSmallScreen = useMediaQuery("(max-width: 650px)");
   const isVerySmallScreen = useMediaQuery("(max-width: 379px)");
   const marketPrice: number | undefined = useAppSelector((state) => {
@@ -101,7 +104,7 @@ const TreasuryDashboard = memo(() => {
     },
     {
       name: "Daily mint limit",
-      value: 858,
+      value: `${trim(emission, 0)}`,
     },
     {
       name: "Treasury Balance",
@@ -109,7 +112,12 @@ const TreasuryDashboard = memo(() => {
     },
     {
       name: "D3 Index Balance",
-      value: `$ ${10716}`,
+      value:  new Intl.NumberFormat("en-US", {
+                style: "currency",
+                currency: "USD",
+                maximumFractionDigits: 0,
+                minimumFractionDigits: 0,
+              }).format(Number(total))
     },
     {
       name: "Total Burn Tokens",
@@ -117,7 +125,12 @@ const TreasuryDashboard = memo(() => {
     },
     {
       name: "AUM",
-      value: `$ ${213497}`,
+      value:    new Intl.NumberFormat("en-US", {
+                  style: "currency",
+                  currency: "USD",
+                  maximumFractionDigits: 0,
+                  minimumFractionDigits: 0,
+                }).format(Number(total+ Number(treasuryBalance)))
     },
     {
       name: "Burning Rate",
