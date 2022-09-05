@@ -147,7 +147,7 @@ function AirDrop() {
                 <img src={img1} />
                 <div style={{marginLeft:"20px", lineHeight:"16px"}}>
                   <Typography variant="h6" style={{lineHeight:"36px", fontSize:"14px", fontFamily:"Outfit", fontWeight:"400", color:"#868686"}}>Next Pool Release</Typography>
-                  <Typography style={{lineHeight:"36px", fontSize:"28px", fontFamily:"Outfit"}}>{(vestingPeriod(rebasePool)==0)? "$0": vestingPeriod(rebasePool)}</Typography>
+                  <Typography style={{lineHeight:"36px", fontSize:"28px", fontFamily:"Outfit"}}>{vestingPeriod(rebasePool)}</Typography>
                 </div>
               </div>
 
@@ -189,7 +189,7 @@ function AirDrop() {
                 <img src={img1} />
                 <div style={{marginLeft:"20px", lineHeight:"16px"}}>
                   <Typography variant="h6" style={{lineHeight:"36px", fontSize:"14px", fontFamily:"Outfit", fontWeight:"400", color:"#868686"}}>Next Payout</Typography>
-                  <Typography style={{lineHeight:"36px", fontSize:"28px", fontFamily:"Outfit"}}>{(vestingPeriod(nextPayOut)==0)?"$0": vestingPeriod(nextPayOut)}</Typography>
+                  <Typography style={{lineHeight:"36px", fontSize:"28px", fontFamily:"Outfit"}}>{vestingPeriod(nextPayOut)}</Typography>
                 </div>
               </div>
 
