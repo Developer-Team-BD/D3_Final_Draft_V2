@@ -116,13 +116,12 @@ function AirDrop() {
                   <Typography style={{ fontSize:"18px", fontWeight:"400", fontFamily:"Outfit", lineHeight:"56px"}}>${trim(totalBUSDClaimed,3)}</Typography>
                 </div>
                 <div style={{display:"flex", flexDirection:"column", marginBottom:"10px"}}>
-                  <Link  
-                    to={`https://pancakeswap.finance/swap?outputCurrency=${D3_ADDRESS}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <a  
+                     href={"https://pancakeswap.finance/swap?outputCurrency=0xB4c16Ed711c06b84e4312d5f09bcbD88E4F4d3b6"}
+                     target="_blank"
                   >
                       <button  className="totalBusd_btn">Buy DEFI</button>
-                  </Link>
+                  </a>
                   <Link to="/dashboard"><button  className="totalBusd_btn">Stake Crypto</button></Link>
                   
                 </div>
