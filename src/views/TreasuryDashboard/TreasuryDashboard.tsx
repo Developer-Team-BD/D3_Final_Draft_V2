@@ -130,7 +130,7 @@ const { assets, total } =  useAssets()
                   currency: "USD",
                   maximumFractionDigits: 0,
                   minimumFractionDigits: 0,
-                }).format(Number(total+ Number(treasuryBalance)))
+                }).format(Number(total + Number(treasuryBalance)))
     },
     {
       name: "Burning Rate",
