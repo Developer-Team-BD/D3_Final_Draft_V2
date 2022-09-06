@@ -25,6 +25,7 @@ import TopBar from "./components/TopBar/TopBar.jsx";
 import NavDrawer from "./components/Sidebar/NavDrawer.jsx";
 import Messages from "./components/Messages/Messages";
 import NotFound from "./views/404/NotFound";
+import NftPage from './views/D3-NFT/NftPage'
 import ChangeNetwork from "./views/ChangeNetwork/ChangeNetwork";
 import { dark as darkTheme } from "./themes/dark.js";
 import "./style.scss";
@@ -269,6 +270,9 @@ function App() {
             </Route>
             <Route path="/index">
               <IndexPage/>
+            </Route>
+            <Route path="/d3-nft">
+              <NftPage/>
             </Route>
             <Route path="/network">
               <ChangeNetwork />

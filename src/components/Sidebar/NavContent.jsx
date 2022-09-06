@@ -206,6 +206,20 @@ function NavContent() {
                       <Trans>D3 Index</Trans>
                     </Typography>
                   </Link>
+                  <Link
+                    component={NavLink}
+                    id="index-nav"
+                    to="/d3-nft"
+                    isActive={(match, location) => {
+                      return checkPage(match, location, "d3-nft");
+                    }}
+                    className={`button-dapp-menu ${isActive ? "active" : ""}`}
+                  >
+                    <Typography variant="h6">
+                      <SvgIcon color="primary" component={CalculatorIcon} />
+                      <Trans>D3 NFT</Trans>
+                    </Typography>
+                  </Link>
 
                   <Link
                     component={NavLink}

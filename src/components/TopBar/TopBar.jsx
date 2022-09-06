@@ -140,6 +140,24 @@ function TopBar({ theme, toggleTheme, handleDrawerToggle }) {
                 </Link>
               </Grid>
 
+               {/* Navbar D3 NFT Redirect */}
+               <Grid item>
+                <Link id="index-nav" href="/#/d3-nft">
+                  <Typography
+                    variant="h6"
+                    style={
+                      location.pathname === "/d3-nft"
+                        ? {
+                            borderBottom: "2px solid #FFD639",
+                          }
+                        : {}
+                    }
+                  >
+                    <Trans>D3 NFT</Trans>
+                  </Typography>
+                </Link>
+              </Grid>
+
               {/* Navbar Dividend Redirect */}
               <Grid item>
                 <Link id="airdrop-nav" href="/#/dividend">

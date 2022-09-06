@@ -14,7 +14,7 @@ import {
   Zoom,
 } from "@material-ui/core";
 import { t, Trans } from "@lingui/macro";
-import { AssetTableData, AssetDataCard } from "./BondRow";
+import { AssetTableData, AssetDataCard } from "./NftRow";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { formatCurrency, trim } from "../../helpers";
 import useBonds from "../../hooks/Bonds";
@@ -31,8 +31,9 @@ import { useAppSelector } from "../../hooks";
 import { IUserBondDetails } from "../../slices/AccountSlice";
 import { useState, useEffect } from "react";
 import { ReactComponent as Background } from "../../assets/page-bg.svg";
+import Nftimg from "./Nft.png"
 
-function IndexPage() {
+function NftPage() {
   const networkId = useAppSelector((state) => state.network.networkId);
   const history = useHistory();
   const { bonds } = useBonds(networkId);
@@ -71,6 +72,57 @@ function IndexPage() {
     return state.app.marketPrice;
   });
 
+  const nftData =[
+    {
+      img: `${Nftimg}`,
+      displayName:"Space Bear #1212",
+      assetPrice:"2. 09 ETH",
+      assetAmount:"$ 2,600"
+    }, 
+    {
+      img: `${Nftimg}`,
+      displayName:"Space Bear #1212",
+      assetPrice:"2. 09 ETH",
+      assetAmount:"$ 2,600"
+    }, 
+    {
+      img: `${Nftimg}`,
+      displayName:"Space Bear #1212",
+      assetPrice:"2. 09 ETH",
+      assetAmount:"$ 2,600"
+    }, 
+    {
+      img: `${Nftimg}`,
+      displayName:"Space Bear #1212",
+      assetPrice:"2. 09 ETH",
+      assetAmount:"$ 2,600"
+    }, 
+    {
+      img: `${Nftimg}`,
+      displayName:"Space Bear #1212",
+      assetPrice:"2. 09 ETH",
+      assetAmount:"$ 2,600"
+    }, 
+    {
+      img: `${Nftimg}`,
+      displayName:"Space Bear #1212",
+      assetPrice:"2. 09 ETH",
+      assetAmount:"$ 2,600"
+    }, 
+    {
+      img: `${Nftimg}`,
+      displayName:"Space Bear #1212",
+      assetPrice:"2. 09 ETH",
+      assetAmount:"$ 2,600"
+    }, 
+    {
+      img: `${Nftimg}`,
+      displayName:"Space Bear #1212",
+      assetPrice:"2. 09 ETH",
+      assetAmount:"$ 2,600"
+    }, 
+  ]
+
   return (
     <>
       {/* Background image */}
@@ -106,16 +158,16 @@ function IndexPage() {
             backgroundColor: "#1C1C1C",
           }}
         >
-          <Grid
+          {/* <Grid
             container
             item
             xs={12}
             style={{ margin: "10px 0px 20px" }}
             justifyContent="center"
           >
-            <Grid item xs={12} sm={3} className={`ohm-price`}>
+            <Grid item xs={3} className={`ohm-price`}>
               <Box textAlign="center">
-                <Typography style={{ fontSize: "14px", color: "#868686", marginBottom:"10px", marginTop:"10px"}}>
+                <Typography style={{ fontSize: "14px", color: "#868686", marginBottom:"10px"}}>
                   <Trans>DEFI Price</Trans>
                 </Typography>
                 <Typography
@@ -135,9 +187,9 @@ function IndexPage() {
               </Box>
             </Grid>
 
-            <Grid item xs={12} sm={3}>
+            <Grid item xs={3}>
               <Box textAlign="center">
-                <Typography style={{ fontSize: "14px", color: "#868686",  marginBottom:"10px", marginTop:"10px"}}>
+                <Typography style={{ fontSize: "14px", color: "#868686",  marginBottom:"10px" }}>
                   <Trans>Index Balance</Trans>
                 </Typography>
                 <Box>
@@ -167,9 +219,9 @@ function IndexPage() {
               </Box>
             </Grid>
 
-            <Grid item xs={12} sm={3}>
+            <Grid item xs={3}>
               <Box textAlign="center">
-                <Typography style={{ fontSize: "14px", color: "#868686",  marginBottom:"10px",marginTop:"10px" }}>
+                <Typography style={{ fontSize: "14px", color: "#868686",  marginBottom:"10px" }}>
                   <Trans>AUM</Trans>
                 </Typography>
                 <Box>
@@ -198,7 +250,7 @@ function IndexPage() {
                 </Box>
               </Box>
             </Grid>
-          </Grid>
+          </Grid> */}
 
           {!isSmallScreen && (
             <Grid container item>
@@ -211,11 +263,11 @@ function IndexPage() {
                         <Trans>ASSETS</Trans>
                       </TableCell>
                       <TableCell align="center" style={{ fontSize: "14px" }}>
-                        <Trans>PRICE</Trans>
+                        <Trans>FLOAT PRICE</Trans>
                       </TableCell>
-                      <TableCell align="center" style={{ fontSize: "14px" }}>
+                      {/* <TableCell align="center" style={{ fontSize: "14px" }}>
                         <Trans>Amount</Trans>
-                      </TableCell>
+                      </TableCell> */}
                       <TableCell align="center" style={{ fontSize: "14px" }}>
                         <Trans>Balance</Trans>
                       </TableCell>
@@ -223,16 +275,14 @@ function IndexPage() {
                     </TableRow>
                   </TableHead>
                   <TableBody>
-                    {assets.map((asset) => {
-                      if (asset.name) {
-                        return (
-                          <AssetTableData
-                            key={asset.name}
-                            asset={asset}
-                            style={{ fontSize: "14px" }}
-                          />
-                        );
-                      }
+                    {nftData.map((val, ind) => {
+                      return (
+                        <AssetTableData
+                          key={ind}
+                          val={val}
+                          style={{ fontSize: "14px" }}
+                        />
+                      );
                     })}
                   </TableBody>
                 </Table>
@@ -245,14 +295,12 @@ function IndexPage() {
           <Box className="ohm-card-container">
             <Grid container item spacing={2}>
               <>
-                {assets.map((asset) => {
-                  if (asset.name) {
-                    return (
-                      <Grid item xs={12} key={asset.name}>
-                        <AssetDataCard key={asset.name} asset={asset} />
-                      </Grid>
-                    );
-                  }
+                {nftData.map((val, ind) => {
+                 return (
+                  <Grid item xs={12} key={ind}>
+                    <AssetDataCard key={ind} asset={val} />
+                  </Grid>
+                );
                 })}
               </>
             </Grid>
@@ -263,4 +311,4 @@ function IndexPage() {
   );
 }
 
-export default IndexPage;
+export default NftPage;

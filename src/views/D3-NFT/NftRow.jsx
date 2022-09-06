@@ -22,12 +22,16 @@ import { trim } from "../../helpers";
 
 export function AssetDataCard({ asset }) {
   const isBondLoading = !asset.assetPrice ?? true;
+  let nftstyle = { height: "32px", width: "32px" };
 
   return (
     <Slide direction="up" in={true}>
       <Paper id={`${asset.name}--bond`} className="bond-data-card ohm-card">
         <div className="bond-pair">
-          <BondLogo bond={asset} />
+        <Box display="flex" alignItems="center" justifyContent="center" width={"64px"}>
+          <img style={nftstyle} src={asset.img}/>
+
+        </Box>
         </div>
         <div className="data-row">
           <Typography>
@@ -37,7 +41,7 @@ export function AssetDataCard({ asset }) {
             <>{isBondLoading ? <Skeleton width="50px" /> : asset.assetPrice}</>
           </Typography>
         </div>
-        <div className="data-row">
+        {/* <div className="data-row">
           <Typography>
             <Trans>Amount</Trans>
           </Typography>
@@ -45,10 +49,10 @@ export function AssetDataCard({ asset }) {
             {isBondLoading ? (
               <Skeleton width="50px" />
             ) : (
-              trim(asset.assetAmount, 3)
+              asset
             )}
           </Typography>
-        </div>
+        </div> */}
 
         <div className="data-row">
           <Typography>
@@ -58,12 +62,7 @@ export function AssetDataCard({ asset }) {
             {isBondLoading ? (
               <Skeleton width="80px" />
             ) : (
-              new Intl.NumberFormat("en-US", {
-                style: "currency",
-                currency: "USD",
-                maximumFractionDigits: 0,
-                minimumFractionDigits: 0,
-              }).format(asset.assetPrice * asset.assetAmount)
+             asset.assetAmount
             )}
           </Typography>
         </div>
@@ -72,16 +71,23 @@ export function AssetDataCard({ asset }) {
   );
 }
 
-export function AssetTableData({ asset, style }) {
-  const isAssetLoading = !asset.assetPrice ?? true;
+export function AssetTableData({ val, style }) {
+  const isAssetLoading = !val.assetPrice ?? true;
+ 
+  let nftstyle = { height: "32px", width: "32px" };
+  
   return (
-    <TableRow id={`${asset.name}--bond`}>
+    <TableRow >
       <TableCell align="right">
-        <BondLogo bond={asset} />
+        <Box display="flex" alignItems="center" justifyContent="center" width={"64px"}>
+          <img style={nftstyle} src={val.img}/>
+
+        </Box>
+        
       </TableCell>
       <TableCell align="left" className="bond-name-cell">
         <div className="bond-name">
-          <Typography style={style}>{asset.displayName}</Typography>
+          <Typography style={style}>{val.displayName}</Typography>
         </div>
       </TableCell>
       <TableCell align="center">
@@ -90,12 +96,12 @@ export function AssetTableData({ asset, style }) {
             {isAssetLoading ? (
               <Skeleton width="50px" />
             ) : (
-              trim(asset.assetPrice, 7)
+              val.assetPrice
             )}
           </>
         </Typography>
       </TableCell>
-      <TableCell align="center">
+      {/* <TableCell align="center">
         <Typography style={style}>
           {isAssetLoading ? (
             <Skeleton width="50px" />
@@ -103,18 +109,13 @@ export function AssetTableData({ asset, style }) {
             trim(asset.assetAmount, 3)
           )}
         </Typography>
-      </TableCell>
+      </TableCell> */}
       <TableCell align="center">
         <Typography style={style}>
           {isAssetLoading ? (
             <Skeleton />
           ) : (
-            new Intl.NumberFormat("en-US", {
-              style: "currency",
-              currency: "USD",
-              maximumFractionDigits: 0,
-              minimumFractionDigits: 0,
-            }).format(asset.assetPrice * asset.assetAmount)
+            val.assetAmount
           )}
         </Typography>
       </TableCell>
