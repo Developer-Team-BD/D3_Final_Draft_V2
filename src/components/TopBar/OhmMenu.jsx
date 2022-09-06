@@ -86,10 +86,18 @@ function OhmMenu() {
     >
       <Button id="ohm-menu-button" size="large" variant="contained" color="secondary" title="DEFI" aria-describedby={id}>
         {/* <SvgIcon component={InfoIcon} color="primary" /> */}
-        <Typography className="ohm-menu-button-text">Buy DEFI</Typography>
+        <Link
+                    href={`https://pancakeswap.finance/swap?outputCurrency=${D3_ADDRESS}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    style={{display:"flex", alignItems:"center"}}
+                  >
+            <Typography className="ohm-menu-button-text">Buy DEFI</Typography>
+                    
+        </Link>
       </Button>
 
-      <Popper id={id} open={open} anchorEl={anchorEl} placement="bottom-start" transition>
+      {/* <Popper id={id} open={open} anchorEl={anchorEl} placement="bottom-start" transition>
         {({ TransitionProps }) => {
           return (
             <Fade {...TransitionProps} timeout={100}>
@@ -112,7 +120,7 @@ function OhmMenu() {
             </Fade>
           );
         }}
-      </Popper>
+      </Popper> */}
     </Grid>
   );
 }
